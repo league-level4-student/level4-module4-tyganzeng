@@ -1,18 +1,26 @@
 package _03_polymorphs;
 
+
+
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class BluePolymorph extends Polymorph{
+public class MovingPolymorph extends Polymorph{
 
-	BluePolymorph(int x, int y) {
+	MovingPolymorph(int x, int y) {
 		super(x, y);
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		g.setColor(Color.blue);
+		g.setColor(Color.black);
 		g.fillRect(getX(), getY(), getWidth(), getHeight());
 	}
 	
+	@Override
+	public void update() {
+		setX(getX() + 5);
+	}
+	
 }
+
