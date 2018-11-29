@@ -10,4 +10,8 @@ public class Patient {
 	public void setFeelCaredFor(boolean b) {
 		feelCaredFor = b;
 	}
+	
+	public boolean feelsCaredFor() {
+		return feelCaredFor;
+	}
 }

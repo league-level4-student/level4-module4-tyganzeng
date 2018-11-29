@@ -17,6 +17,7 @@ public class Doctor {
 		performSurgery = b;
 	}
 	
+	
 	public boolean performsSurgery() {
 		return performSurgery;
 	}
@@ -29,11 +30,21 @@ public class Doctor {
 		return makeHouseCalls;
 	}
 	
-	public void assignPatient(Patient p) {
-		patients.add(p);
+	public void assignPatient(Patient p) throws DoctorFullException{
+		if(patients.size() < 3) {
+			patients.add(p);
+		} else {
+			throw new DoctorFullException();
+		}
 	}
 	
 	public ArrayList<Patient> getPatients(){
 		return patients;
+	}
+	
+	public void doMedicine() {
+		for(Patient p : patients) {
+			p.checkPulse();
+		}
 	}
 }

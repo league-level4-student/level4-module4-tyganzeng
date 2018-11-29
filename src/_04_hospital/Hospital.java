@@ -28,4 +28,20 @@ public class Hospital {
 		return patients;
 	}
 	
+	public void assignPatientsToDoctors() {
+		int count = 0;
+		for(Patient p : patients) {
+			try {
+				doctors.get(count).assignPatient(p);
+			} catch (DoctorFullException dfe) {
+				count++;
+				try {
+					doctors.get(count).assignPatient(p);
+				} catch (DoctorFullException e) {
+					
+				}
+			}
+		}
+	}
+	
 }
